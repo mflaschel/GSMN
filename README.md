@@ -1,1 +1,1 @@
-# GSMN
+# Generalized Standard Material Networks

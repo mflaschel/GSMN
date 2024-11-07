@@ -1,0 +1,8 @@
+# ignore chache
+*__pycache__*
+
+# ignore data files
+*.pickle
+
+
+
