@@ -25,3 +25,7 @@ To run the code, execute one of the following scripts:
 * `matplotlib`
 * `numpy`
 * `torch`
+
+## How to cite
+
+`Flaschel, M., Steinmann, P., De Lorenzis, L., Kuhl, E., 2024. Supplementary software for ”Convex neural networks learn generalized standard material models”. doi:http://doi.org/10.5281/zenodo.14055700`
