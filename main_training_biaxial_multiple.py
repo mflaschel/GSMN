@@ -15,6 +15,9 @@ Author: Moritz Flaschel
 
   Generalized      Standard        Material        Networks
 
+Description:
+This script loads the gsmn module and trains the GSMN on the training data.
+
 """
 
 import numpy as np

@@ -15,6 +15,9 @@ Author: Moritz Flaschel
 
   Generalized      Standard        Material        Networks
 
+Description:
+This class defines a general strain control path. It contains attributes and methods that are not specifically tailored to a certain loading mode.
+
 """
 
 import numpy as np

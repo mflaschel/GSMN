@@ -15,6 +15,10 @@ Author: Moritz Flaschel
 
   Generalized      Standard        Material        Networks
 
+Description:
+In this module, the thermodynamic potentials of the benchmark model are implemented.
+See Flaschel et al. (2023) - Automated discovery of generalized standard material models with EUCLID.
+
 """
 
 import math

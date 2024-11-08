@@ -15,6 +15,9 @@ Author: Moritz Flaschel
 
   Generalized      Standard        Material        Networks
 
+Description:
+In this module, the neural network ansatz for the thermodynamic potentials of the GSMN is implemented.
+
 """
 
 import math

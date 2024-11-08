@@ -15,6 +15,9 @@ Author: Moritz Flaschel
 
   Generalized      Standard        Material        Networks
 
+Description:
+This class specifies the (hyper-)parameters for the training process.
+
 """
 
 import argparse

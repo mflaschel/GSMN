@@ -15,6 +15,11 @@ Author: Moritz Flaschel
 
   Generalized      Standard        Material        Networks
 
+Description:
+This class inherits from the Parentmaterial class.
+This class defines a GSMN. Two thermodynamic potentials must be provided to construct a GSMN.
+The the thermodynamic potentials can be user-defined functions (see Potential_benchmark) or neural networks (see Potential_neural_network).
+
 """
 
 import numpy as np

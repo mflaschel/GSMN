@@ -15,6 +15,9 @@ Author: Moritz Flaschel
 
   Generalized      Standard        Material        Networks
 
+Description:
+This module provides plotting routines.
+
 """
 
 import matplotlib.pyplot as plt

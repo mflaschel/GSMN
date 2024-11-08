@@ -15,6 +15,9 @@ Author: Moritz Flaschel
 
   Generalized      Standard        Material        Networks
 
+Description:
+This class inherits from the Control class and defines a strain control path with tension and subsequent unloading.
+
 """
 
 import numpy as np
