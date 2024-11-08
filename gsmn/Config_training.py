@@ -95,10 +95,8 @@ class Config_training():
         # ========== network architecture ==========
         self.n_epsilon = 6
         self.n_internal = 6
-        NH = self.n_epsilon + self.n_internal
         self.n_neuron_HFEP = [36, 72, 36]
         # self.n_neuron_HFEP = [4, 4, 4]
-        ND = self.n_internal
         self.n_neuron_DRP = [36, 90, 180]
         # self.n_neuron_DRP = [6, 15, 30]
         self.activation = "softplus_squared"
@@ -112,7 +110,7 @@ class Config_training():
         self.use_adjoint = False
         
         # ========== optimization ==========
-        self.n_iter = 5
+        self.n_iter = 1000
         self.seed = 42
         self.optimization_method = "Adam"
         self.lr = 0.01
@@ -127,7 +125,7 @@ class Config_training():
         self._clip_grad_norm = 10000.0
         self._plot_loss = True # specify whether plots should be generated during training
         self._plot_material_response = False # specify whether plots should be generated during training
-        self.n_log = 1 # self.n_iter # specify how often plots should be generated during an interactive run
+        self.n_log = self.n_iter # specify how often plots should be generated during an interactive run
         
     def _print(self):
         print('Configurations:')

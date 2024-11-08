@@ -39,14 +39,14 @@ def squared(epsilon):
 def dev_squared(epsilon):
     return torch.sum(dev(epsilon)**2 * torch.tensor([1.0, 1.0, 1.0, 2.0, 2.0, 2.0]))
 
-def Benchmark_potentials(
+def potential_benchmark(
         Ginf=0.6, Kinf=1.3, G1=0.35, g1=110.0, K1=0.4, k1=15.0, sigma_0=0.03, eta_p=0.04, H_iso=0.03, H_kin=0.01, gamma=1e-6
         ):
-    HFEP = Benchmark_HFEP(Ginf=Ginf, Kinf=Kinf, G1=G1, K1=K1, H_iso=H_iso, H_kin=H_kin).double()
-    DRP_dual = Benchmark_DRP_dual(G1=G1, K1=K1, g1=g1, k1=k1, sigma_0=sigma_0, eta_p=eta_p, gamma=gamma).double()
+    HFEP = HFEP_benchmark(Ginf=Ginf, Kinf=Kinf, G1=G1, K1=K1, H_iso=H_iso, H_kin=H_kin).double()
+    DRP_dual = DRP_dual_benchmark(G1=G1, K1=K1, g1=g1, k1=k1, sigma_0=sigma_0, eta_p=eta_p, gamma=gamma).double()
     return HFEP, DRP_dual
 
-class Benchmark_HFEP(nn.Module):
+class HFEP_benchmark(nn.Module):
     def __init__(self, Ginf=0.6, Kinf=1.3, G1=0.35, K1=0.4, H_iso=0.03, H_kin=0.01):
         super().__init__()
         self.n_epsilon = 6
@@ -73,7 +73,7 @@ class Benchmark_HFEP(nn.Module):
             + 1.0/2.0 * self.H_kin * squared(alpha_III)
             ).view(1,1)
     
-class Benchmark_DRP_dual(nn.Module):
+class DRP_dual_benchmark(nn.Module):
     def __init__(self, G1=0.35, K1=0.4, g1=110.0, k1=15.0, sigma_0=0.03, eta_p=0.04, gamma=1e-6):
         super().__init__()
         self.n_epsilon = 0

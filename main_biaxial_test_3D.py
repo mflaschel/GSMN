@@ -23,19 +23,17 @@ import gsmn
 
 # ========== configuration ==========
 c = gsmn.Config_training(create_outputdir=False)
-
 torch.manual_seed(c.seed)
 
-# ========== configuration ==========
-
+# ========== biaxial tests ==========
 n_step = 20
 epsilon_max = 0.05
 noise_level = 0.0
 # noise_level = 0.005
 
 for k in range(5):
-    for j in range(2):
-        for i in range(3):
+    for j in range(3):
+        for i in range(2):
             if i == 0:
                 time_max = 50
             elif i == 1:
@@ -72,7 +70,7 @@ for k in range(5):
             elif biaxial_case == "direction3":
                 biaxiality_factors=(0.0,1.0)
 
-            control1 = gsmn.Control_time_strain_tension_unloading(
+            control = gsmn.Control_time_strain_tension_unloading(
                 time_max=time_max,
                 epsilon_max=epsilon_max,
                 n_step=n_step,
@@ -80,47 +78,47 @@ for k in range(5):
                 biaxiality_factors=biaxiality_factors
                 )
             
-            control1._log = True
-            control1._n_log = 1
+            control._log = True
+            control._n_log = 1
             
             # ========== define material ==========
             
-            # models from Flaschel et al. (2023)
+            # models from Flaschel et al. (2023) - Automated discovery of generalized standard material models with EUCLID
             lim_zero = 1e-9
             lim_inf = 1e9
             if model_name == "E":
-                HFEP, DRP_dual = gsmn.Benchmark_potentials(
+                HFEP, DRP_dual = gsmn.potential_benchmark(
                         Ginf=0.6, Kinf=1.3, G1=lim_zero, g1=lim_inf, K1=lim_zero, k1=lim_inf, sigma_0=lim_inf, eta_p=lim_zero, H_iso=lim_zero, H_kin=lim_zero
                         )
             elif model_name == "VE":
-                HFEP, DRP_dual = gsmn.Benchmark_potentials(
+                HFEP, DRP_dual = gsmn.potential_benchmark(
                         Ginf=0.25, Kinf=0.9, G1=0.35, g1=110.0, K1=0.4, k1=15.0, sigma_0=lim_inf, eta_p=lim_zero, H_iso=lim_zero, H_kin=lim_zero
                         )
             elif model_name == "VEEP":
-                HFEP, DRP_dual = gsmn.Benchmark_potentials(
+                HFEP, DRP_dual = gsmn.potential_benchmark(
                         Ginf=0.25, Kinf=1.3, G1=0.35, g1=110.0, K1=lim_zero, k1=lim_inf, sigma_0=0.03, eta_p=lim_zero, H_iso=0.03, H_kin=lim_zero
                         )
             elif model_name == "EVP":
-                HFEP, DRP_dual = gsmn.Benchmark_potentials(
+                HFEP, DRP_dual = gsmn.potential_benchmark(
                         Ginf=0.6, Kinf=1.3, G1=lim_zero, g1=lim_inf, K1=lim_zero, k1=lim_inf, sigma_0=0.03, eta_p=0.04, H_iso=lim_zero, H_kin=0.01
                         )
             elif model_name == "VEVP":
-                HFEP, DRP_dual = gsmn.Benchmark_potentials(
+                HFEP, DRP_dual = gsmn.potential_benchmark(
                         Ginf=0.25, Kinf=0.9, G1=0.35, g1=110.0, K1=0.4, k1=15.0, sigma_0=0.03, eta_p=0.04, H_iso=0.03, H_kin=0.01
                         )
             
-            material1 = gsmn.GSMN(NNHFEP=HFEP,NNDRP_dual=DRP_dual,compute_sensitivity=False)
-            material1.name = model_name
+            material = gsmn.GSMN(NNHFEP=HFEP,NNDRP_dual=DRP_dual,compute_sensitivity=False)
+            material.name = model_name
             
             # ========== apply control ==========
-            material1.apply_control(control1)
+            material.apply_control(control)
             
             # ========== add noise ==========
             if noise_level > 0.0:
-                material1.sigma_history += noise_level*torch.randn(material1.sigma_history.shape)
+                material.sigma_history += noise_level*torch.randn(material.sigma_history.shape)
             
             # ========== save ==========
-            gsmn.save_biaxial_test(material1, save_name, add_timestamp=False)
+            gsmn.save_biaxial_test(material, save_name, add_timestamp=False)
 
 
 
