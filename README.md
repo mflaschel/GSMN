@@ -32,5 +32,5 @@ To run the code, execute one of the following scripts:
 Moritz Flaschel, Paul Steinmann, Laura De Lorenzis and Ellen Kuhl  
 Supplementary software for ”Convex neural networks learn generalized standard material models”  
 2024  
-DOI: http://doi.org/10.5281/zenodo.14055700`  
+DOI: http://doi.org/10.5281/zenodo.14055700  
 ```
