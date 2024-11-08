@@ -16,7 +16,7 @@ Author: Moritz Flaschel
   Generalized      Standard        Material        Networks
 
 Description:
-This script loads the gsmn module and trains the GSMN on the training data.
+This script loads the gsmn package and trains the GSMN on the training data.
 
 """
 

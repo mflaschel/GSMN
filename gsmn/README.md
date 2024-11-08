@@ -1,8 +1,7 @@
 # gsmn
-The gsmn package contains different modules and classes for generating training data and training the GSMN. 
+The `gsmn` package contains different modules and classes for generating training data and training the GSMN. 
 
 ## Modules and Classes
-
 
 * `Config_training`: This class specifies the (hyper-)parameters for the training process.
 * `Control_time_strain_tension_unloading`: This class inherits from the `Control` class and defines a strain control path with tension and subsequent unloading.
@@ -11,5 +10,5 @@ The gsmn package contains different modules and classes for generating training 
 * `Inout`: This module provides input and out routines, i.e., loading and saving data.
 * `Parentmaterial`: This class defines a general material. It contains attributes and methods that are not specifically tailored to GSMN.
 * `Plot`: This module provides plotting routines.
-* `Potential_benchmark`: In this module, the thermodynamic potentials of the benchmark model are implemented. See Flaschel et al. (2023) - Automated discovery of generalized standard material models with EUCLID.
+* `Potential_benchmark`: In this module, the thermodynamic potentials of the benchmark model are implemented. See [Flaschel et al. (2023) - Automated discovery of generalized standard material models with EUCLID](https://www.sciencedirect.com/science/article/pii/S0045782522008234).
 * `Potential_neural_network`: In this module, the neural network ansatz for the thermodynamic potentials of the GSMN is implemented.

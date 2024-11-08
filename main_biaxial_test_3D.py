@@ -16,7 +16,7 @@ Author: Moritz Flaschel
   Generalized      Standard        Material        Networks
 
 Description:
-This script loads the gsmn module and creates data based on the benchmark material model.
+This script loads the gsmn package and creates data based on the benchmark material model.
 See Flaschel et al. (2023) - Automated discovery of generalized standard material models with EUCLID.
 
 """
